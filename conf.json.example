@@ -1,4 +1,0 @@
-{
-    "server": "mongodb+srv://username:password@server",
-    "database": "users_db"
-}

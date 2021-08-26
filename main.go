@@ -51,6 +51,7 @@ const (
 
 // Connection to database
 func (m *DAO) Connection() {
+	fmt.Println("Connecting to MongoDB...")
 	clientOptions := options.Client().ApplyURI(m.Server)
 	client, err := mongo.NewClient(clientOptions)
 	if err != nil {
@@ -75,7 +76,7 @@ func (m *DAO) Connection() {
 func (m *DAO) FindAll() (users []User, err error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
 	defer cancel()
-	opts := options.Find().SetSort(bson.D{primitive.E{Key: "age", Value: -1}})
+	opts := options.Find().SetSort(bson.D{primitive.E{Key: "name", Value: -1}})
 	cursor, err := db.Collection(COLLECTION).Find(ctx, bson.M{}, opts)
 	if err != nil {
 		log.Fatal(err)
