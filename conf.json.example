@@ -1,0 +1,4 @@
+{
+    "server": "mongodb+srv://",
+    "database": "users_db"
+}
